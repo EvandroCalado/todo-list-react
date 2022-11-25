@@ -8,12 +8,14 @@ import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Paper } from "@mui/material";
 
+import "./TodoItem.css";
+
 export default function TodoItem(props) {
   return (
     <Paper style={{ padding: "0.5rem 0" }}>
       <ListItem
         secondaryAction={
-          <IconButton edge="end" aria-label="comments">
+          <IconButton edge="end" aria-label="delete" onClick={() => props.deleteTodo(props)}>
             <DeleteIcon />
           </IconButton>
         }
@@ -21,9 +23,13 @@ export default function TodoItem(props) {
       >
         <ListItemButton role={undefined} dense>
           <ListItemIcon>
-            <Checkbox edge="start" tabIndex={-1} disableRipple />
+            <Checkbox
+              edge="start"
+              tabIndex={-1}
+              disableRipple
+            />
           </ListItemIcon>
-          <ListItemText primary={props.todo.text} />
+          <ListItemText primary={props} />
         </ListItemButton>
       </ListItem>
     </Paper>

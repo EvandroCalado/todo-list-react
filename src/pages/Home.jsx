@@ -6,10 +6,15 @@ import TodoItem from "../components/TodoItem";
 const Home = (props) => {
   const [todos, setTodos] = useState([]);
 
-  const handleTodo = (text) => {
-    const todoObj = { text: text };
-    setTodos([...todos, todoObj]);
+  const handleTodo = (todo) => {
+   
+    setTodos([...todos, todo]);
   };
+
+  const deleteTodo = (id) => {
+    console.log(id)
+    console.log(todos)
+  }
 
   return (
     <div>
@@ -18,7 +23,7 @@ const Home = (props) => {
         <List sx={{ marginTop: "1rem" }}>
           {todos.map((todo, i) => (
             <div key={i} style={{ marginTop: "1rem" }}>
-              <TodoItem todo={todo} />
+              <TodoItem todo={todo} deleteTodo={deleteTodo} />
             </div>
           ))}
         </List>
