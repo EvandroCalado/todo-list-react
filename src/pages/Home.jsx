@@ -16,8 +16,8 @@ const Home = (props) => {
       <Container maxWidth="xs" style={{ marginTop: "1rem" }}>
         <Form handleTodo={handleTodo} />
         <List sx={{ marginTop: "1rem" }}>
-          {todos.map((todo, key) => (
-            <div key={key} style={{ marginTop: "1rem" }}>
+          {todos.map((todo, i) => (
+            <div key={i} style={{ marginTop: "1rem" }}>
               <TodoItem todo={todo} />
             </div>
           ))}
